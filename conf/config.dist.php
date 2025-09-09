@@ -611,7 +611,7 @@ return [
             'captcha.on.login' => false,
 
             # Restrict registration to specific email domains (comma-separated, e.g., example.com,school.edu)
-            'required.email.domains' => '__DOMAIN__',
+            'required.email.domains' => '__DOMAIN__,__ALLOWED_DOMAINS__',
 
 
 
