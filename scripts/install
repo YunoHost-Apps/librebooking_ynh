@@ -29,6 +29,10 @@ ynh_script_progression "Setting up source files..."
 
 ynh_setup_source --dest_dir="$install_dir"
 
+popd $install_dir 
+  ynh_composer_exec install
+popd
+
 chown -R "$app:www-data" "$install_dir"
 
 #=================================================
