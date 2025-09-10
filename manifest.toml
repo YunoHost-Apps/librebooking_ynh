@@ -70,11 +70,11 @@ ram.runtime = "50M"
     [install.compagny_url]
     ask.en = "The compagny/organisation website"
     ask.fr = "Le site de l'entreprise/organisation"
-    type ="string"
+    type ="url"
 
     [install.allowed_domains]
-    ask.en = "The allowed domains to register"
-    ask.fr = "Les noms de domaines autorisés à s'inscrire"
+    ask.en = "The allowed domains to register (you can have multiple domains separated by commas ,) "
+    ask.fr = "Les noms de domaines autorisés à s'inscrire (vous pouvez avoir plusieurs domaines séparés par virgules ,) "
     type ="string"
 
     [install.mail_user]
