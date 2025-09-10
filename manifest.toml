@@ -77,6 +77,14 @@ ram.runtime = "50M"
     ask.fr = "Les noms de domaines autorisés à s'inscrire"
     type ="string"
 
+    [install.mail_user]
+    ask.en = "Choose the application mail system"
+    ask.fr = "Choisissez l'email système de l'application"
+    type = "select"
+    choices.noreply="noreply@"
+    choices.contact="contact@"
+    default = "noreply"
+
 [resources]
     [resources.sources]
 
