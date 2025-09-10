@@ -67,11 +67,6 @@ ram.runtime = "50M"
     ask.fr = "Le nom de l'entreprise/organisation"
     type ="string"
 
-    [install.compagny]
-    ask.en = "The compagny/organisation name"
-    ask.fr = "Le nom de l'entreprise/organisation"
-    type ="string"
-
     [install.compagny_url]
     ask.en = "The compagny/organisation website"
     ask.fr = "Le site de l'entreprise/organisation"
