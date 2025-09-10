@@ -57,6 +57,31 @@ ram.runtime = "50M"
     help.fr = "Utilisez le champ aide pour ajouter une information à l'intention de l'administrateur à propos de cette question."
     type = "password"
 
+    [install.title]
+    ask.en = "The app public name"
+    ask.fr = "Le nom publique de l'application"
+    type ="string"
+
+    [install.compagny]
+    ask.en = "The compagny/organisation name"
+    ask.fr = "Le nom de l'entreprise/organisation"
+    type ="string"
+
+    [install.compagny]
+    ask.en = "The compagny/organisation name"
+    ask.fr = "Le nom de l'entreprise/organisation"
+    type ="string"
+
+    [install.compagny_url]
+    ask.en = "The compagny/organisation website"
+    ask.fr = "Le site de l'entreprise/organisation"
+    type ="string"
+
+    [install.allowed_domains]
+    ask.en = "The allowed domains to register"
+    ask.fr = "Les noms de domaines autorisés à s'inscrire"
+    type ="string"
+
 [resources]
     [resources.sources]
 
