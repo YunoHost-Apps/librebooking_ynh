@@ -61,21 +61,25 @@ ram.runtime = "50M"
     ask.en = "The app public name"
     ask.fr = "Le nom publique de l'application"
     type ="string"
+    default = "LibreBooking"
 
     [install.compagny]
     ask.en = "The compagny/organisation name"
     ask.fr = "Le nom de l'entreprise/organisation"
     type ="string"
+    default = "LibreBooking"
 
     [install.compagny_url]
     ask.en = "The compagny/organisation website"
     ask.fr = "Le site de l'entreprise/organisation"
     type ="url"
+    optional = true
 
     [install.allowed_domains]
     ask.en = "The allowed domains to register (you can have multiple domains separated by commas ,) "
     ask.fr = "Les noms de domaines autorisés à s'inscrire (vous pouvez avoir plusieurs domaines séparés par virgules ,) "
     type ="string"
+    optional = true
 
     [install.mail_user]
     ask.en = "Choose the application mail system"
