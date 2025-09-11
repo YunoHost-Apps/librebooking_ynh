@@ -50,6 +50,10 @@ mkdir -p $data_dir/uploads/reservation
 mkdir -p $data_dir/uploads/images
 chown -R "$app:www-data" "$data_dir"
 
+ynh_config_add --template="librebooking.sql" --destination="$install_dir/database_schema/librebooking.sql"
+
+ynh_mysql_db_shell < $install_dir/database_schema/librebooking.sql
+
 #ynh_mysql_db_shell < $install_dir/database_schema/create-schema.sql
 #ynh_mysql_db_shell <<< "ALTER TABLE layouts ADD COLUMN is_default TINYINT(1) DEFAULT 0;"
 #ynh_mysql_db_shell < $install_dir/database_schema/create-data.sql
