@@ -49,6 +49,9 @@ ram.runtime = "50M"
     choices = ["fr_fr", "en_us"]
     default = "fr_fr"
 
+    [install.admin]
+    type = "user"
+
     [install.title]
     ask.en = "The app public name"
     ask.fr = "Le nom publique de l'application"
