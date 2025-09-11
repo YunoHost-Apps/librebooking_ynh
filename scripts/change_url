@@ -21,9 +21,9 @@ ynh_config_change_url_nginx
 # SPECIFIC MODIFICATIONS
 #=================================================
 
-ynh_replace --match="$old_path" --replace="$new_path" --file="$$install_dir/config/config.php"
+ynh_replace --match="$old_path" --replace="$new_path" --file="$install_dir/config/config.php"
 
-ynh_replace --match="$old_domain" --replace="$new_domain" --file="$$install_dir/config/config.php"
+ynh_replace --match="$old_domain" --replace="$new_domain" --file="$install_dir/config/config.php"
 
 #=================================================
 # END OF SCRIPT
