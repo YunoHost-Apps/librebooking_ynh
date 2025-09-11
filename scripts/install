@@ -46,8 +46,8 @@ chown "$app:www-data" "$install_dir/config/config.php"
 mkdir -p $data_dir/uploads/reservation
 mkdir -p $data_dir/uploads/images
 chown -R "$app:www-data" "$data_dir"
-
-chown "$app:$app" "/var/log$app"
+mkdir "/var/log/$app"
+chown "$app:$app" "/var/log/$app"
 
 ynh_config_add --template="librebooking.sql" --destination="$install_dir/database_schema/librebooking.sql"
 
