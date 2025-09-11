@@ -10,9 +10,6 @@ source /usr/share/yunohost/helpers
 admin_mail=$(ynh_user_get_info --username=$admin --key=mail)
 admin_name=$(ynh_user_get_info --username=$admin --key=fullname)
 
-#install_pass=$(ynh_string_random --length=32)
-install_pass=""
-
 timezone="$(timedatectl show --value --property=Timezone)"
 ynh_app_setting_set --key=timezone --value=$timezone
 
@@ -50,13 +47,11 @@ mkdir -p $data_dir/uploads/reservation
 mkdir -p $data_dir/uploads/images
 chown -R "$app:www-data" "$data_dir"
 
+chown "$app:$app" "/var/log$app"
+
 ynh_config_add --template="librebooking.sql" --destination="$install_dir/database_schema/librebooking.sql"
 
 ynh_mysql_db_shell < $install_dir/database_schema/librebooking.sql
-
-#ynh_mysql_db_shell < $install_dir/database_schema/create-schema.sql
-#ynh_mysql_db_shell <<< "ALTER TABLE layouts ADD COLUMN is_default TINYINT(1) DEFAULT 0;"
-#ynh_mysql_db_shell < $install_dir/database_schema/create-data.sql
 
 #=================================================
 # SYSTEM CONFIGURATION
@@ -70,13 +65,6 @@ ynh_config_add_nginx
 ynh_config_add_logrotate
 
 #ynh_config_add_fail2ban --logpath="/var/log/nginx/${domain}-error.log" --failregex="Regex to match into the log for a failed login"
-
-#=================================================
-# SETUP APPLICATION WITH CURL
-#=================================================
-
-ynh_script_progression "Finalizing installation..."
-#ynh_local_curl "/INSTALL_PATH" "key1=value1" "key2=value2" "key3=value3"
 
 #=================================================
 # END OF SCRIPT
