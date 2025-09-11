@@ -45,8 +45,6 @@ chown "$app:www-data" "$install_dir/config/config.php"
 mkdir -p $data_dir/uploads/reservation
 mkdir -p $data_dir/uploads/images
 chown -R "$app:www-data" "$data_dir"
-mkdir "/var/log/$app"
-chown "$app:$app" "/var/log/$app"
 
 ynh_config_add --template="librebooking.sql" --destination="$install_dir/database_schema/librebooking.sql"
 
@@ -62,6 +60,8 @@ ynh_config_add_phpfpm
 ynh_config_add_nginx
 
 ynh_config_add_logrotate
+
+chown "$app:$app" "/var/log/$app"
 
 #ynh_config_add_fail2ban --logpath="/var/log/nginx/${domain}-error.log" --failregex="Regex to match into the log for a failed login"
 
