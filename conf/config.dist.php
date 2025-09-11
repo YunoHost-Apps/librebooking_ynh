@@ -54,7 +54,7 @@ return [
         # Public URL to the Web directory of this instance
         # This is the URL that appears when you are logging in
         #  Leave http: or https: off to auto-detect
-        'script.url' => 'https://__DOMAIN__/__PATH__/Web',
+        'script.url' => 'https://__DOMAIN____PATH__/Web',
 
         # Password to access installation wizard under Web/install/
         # Leave empty to disable the installation wizard
