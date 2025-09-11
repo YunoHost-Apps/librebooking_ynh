@@ -125,7 +125,7 @@ return [
         'phpmailer' => [
             # Mailer type:
             # Options: mail, smtp or sendmail
-            'mailer' => 'smtp',
+            'mailer' => 'mail',
 
             # SMTP host address or IP
             'smtp.host' => '__DOMAIN__',
