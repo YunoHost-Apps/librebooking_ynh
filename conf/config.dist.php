@@ -58,7 +58,7 @@ return [
 
         # Password to access installation wizard under Web/install/
         # Leave empty to disable the installation wizard
-        'install.password' => '__INSTALL_PASS__',
+        'install.password' => '',
 
         # Enable template caching. Recommended for production. (true/false)
         'cache.templates' => true,
