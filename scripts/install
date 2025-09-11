@@ -10,8 +10,8 @@ source /usr/share/yunohost/helpers
 admin_mail=$(ynh_user_get_info --username=$admin --key=mail)
 admin_name=$(ynh_user_get_info --username=$admin --key=fullname)
 
-install_pass=$(ynh_string_random --length=32)
-#install_pass=""
+#install_pass=$(ynh_string_random --length=32)
+install_pass=""
 
 timezone="$(timedatectl show --value --property=Timezone)"
 ynh_app_setting_set --key=timezone --value=$timezone
