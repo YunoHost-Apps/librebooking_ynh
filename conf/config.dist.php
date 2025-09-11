@@ -712,7 +712,7 @@ return [
         'plugins' => [
             # Comma-separated list of plugin class names to use for authentication
             # Available authentication plugins: ActiveDirectory, Apache, CAS, Drupal, Krb5, Ldap, Mellon, Moodle, MoodleAdv, Saml, Shibboleth, WordPress
-            'authentication' => 'Ldap',
+            'authentication' => '',
 
             # Comma-separated list of plugin class names to use for authorization
             'authorization' => '',
