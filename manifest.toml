@@ -109,7 +109,7 @@ ram.runtime = "50M"
     main.url = "/"
 
     [resources.apt]
-    packages = "php8.4-pdo, php8.4-mbstring, php8.4-tokenizer, php8.4-json, php8.4-curl, php8.4-xml, php8.4-ctype, php8.4-bcmath, php8.4-fileinfo  mariadb-server"
+    packages = "php8.4-pdo, php8.4-mbstring, php8.4-tokenizer, php8.4-json, php8.4-curl, php8.4-xml, php8.4-ctype, php8.4-bcmath, php8.4-fileinfo, php8.4-mysqli, mariadb-server"
 
     [resources.database]
     type = "mysql"
