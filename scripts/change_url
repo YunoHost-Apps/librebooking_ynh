@@ -17,6 +17,11 @@ ynh_script_progression "Updating NGINX web server configuration..."
 
 ynh_config_change_url_nginx
 
+ynh_safe_rm $install_dir/tpl_c
+mkdir $install_dir/tpl_c
+
+chown "$app:www-data" "$install_dir/tpl_c"
+
 #=================================================
 # SPECIFIC MODIFICATIONS
 #=================================================
