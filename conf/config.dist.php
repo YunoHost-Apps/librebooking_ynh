@@ -135,7 +135,7 @@ return [
 
             # SMTP encryption
             # Options: tls, ssl
-            'smtp.secure' => '',
+            'smtp.secure' => 'tls',
 
             # Enable SMTP authentication (true/false)
             'smtp.auth' => true,
