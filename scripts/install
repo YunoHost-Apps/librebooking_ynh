@@ -50,8 +50,8 @@ mkdir -p $data_dir/uploads/reservation
 mkdir -p $data_dir/uploads/images
 chown -R "$app:www-data" "$data_dir"
 
-ynh_mysql_db_shell < ./database_schema/create-schema.sql
-ynh_mysql_db_shell < ./database_schema/create-data.sql
+ynh_mysql_db_shell < $install_dir/database_schema/create-schema.sql
+ynh_mysql_db_shell < $install_dir/database_schema/create-data.sql
 
 #=================================================
 # SYSTEM CONFIGURATION
