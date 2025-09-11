@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Sep 11, 2025 at 12:17 PM
+-- Generation Time: Sep 11, 2025 at 01:14 PM
 -- Server version: 10.11.11-MariaDB-0+deb12u1
 -- PHP Version: 8.4.11
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `librebooking`
+-- Database: `booking`
 --
 
 -- --------------------------------------------------------
@@ -33,13 +33,6 @@ CREATE TABLE `accessories` (
   `accessory_quantity` smallint(5) UNSIGNED DEFAULT NULL,
   `legacyid` char(16) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `accessories`
---
-
-INSERT INTO `accessories` (`accessory_id`, `accessory_name`, `accessory_quantity`, `legacyid`) VALUES
-(1, 'Accessory', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -223,16 +216,16 @@ CREATE TABLE `dbversion` (
 --
 
 INSERT INTO `dbversion` (`version_number`, `version_date`) VALUES
-(2.1, '2025-09-09 17:00:42'),
-(2.2, '2025-09-09 17:00:42'),
-(2.3, '2025-09-09 17:00:43'),
-(2.4, '2025-09-09 17:00:43'),
-(2.5, '2025-09-09 17:00:43'),
-(2.6, '2025-09-09 17:00:43'),
-(2.7, '2025-09-09 17:00:44'),
-(2.8, '2025-09-09 17:00:44'),
-(2.9, '2025-09-09 17:00:44'),
-(3, '2025-09-09 17:00:44');
+(2.1, '2025-09-11 13:14:13'),
+(2.2, '2025-09-11 13:14:13'),
+(2.3, '2025-09-11 13:14:14'),
+(2.4, '2025-09-11 13:14:14'),
+(2.5, '2025-09-11 13:14:14'),
+(2.6, '2025-09-11 13:14:14'),
+(2.7, '2025-09-11 13:14:15'),
+(2.8, '2025-09-11 13:14:15'),
+(2.9, '2025-09-11 13:14:15'),
+(3, '2025-09-11 13:14:15');
 
 -- --------------------------------------------------------
 
@@ -247,13 +240,6 @@ CREATE TABLE `groups` (
   `legacyid` char(16) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
   `isdefault` tinyint(1) UNSIGNED NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `groups`
---
-
-INSERT INTO `groups` (`group_id`, `name`, `admin_group_id`, `legacyid`, `isdefault`) VALUES
-(1, 'Administrators', NULL, NULL, 0),
 
 -- --------------------------------------------------------
 
@@ -278,13 +264,6 @@ CREATE TABLE `group_roles` (
   `role_id` tinyint(2) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `group_roles`
---
-
-INSERT INTO `group_roles` (`group_id`, `role_id`) VALUES
-(1, 2);
-
 -- --------------------------------------------------------
 
 --
@@ -302,258 +281,7 @@ CREATE TABLE `layouts` (
 --
 
 INSERT INTO `layouts` (`layout_id`, `timezone`, `layout_type`) VALUES
-(1, '__TIMEZONE__', 0);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `mrbs_area`
---
-
-CREATE TABLE `mrbs_area` (
-  `id` int(11) NOT NULL,
-  `disabled` tinyint(4) NOT NULL DEFAULT 0,
-  `area_name` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `sort_key` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `timezone` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `area_admin_email` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `resolution` int(11) DEFAULT NULL,
-  `default_duration` int(11) DEFAULT NULL,
-  `default_duration_all_day` tinyint(4) NOT NULL DEFAULT 0,
-  `morningstarts` int(11) DEFAULT NULL,
-  `morningstarts_minutes` int(11) DEFAULT NULL,
-  `eveningends` int(11) DEFAULT NULL,
-  `eveningends_minutes` int(11) DEFAULT NULL,
-  `private_enabled` tinyint(4) DEFAULT NULL,
-  `private_default` tinyint(4) DEFAULT NULL,
-  `private_mandatory` tinyint(4) DEFAULT NULL,
-  `private_override` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `min_create_ahead_enabled` tinyint(4) DEFAULT NULL,
-  `min_create_ahead_secs` int(11) DEFAULT NULL,
-  `max_create_ahead_enabled` tinyint(4) DEFAULT NULL,
-  `max_create_ahead_secs` int(11) DEFAULT NULL,
-  `min_delete_ahead_enabled` tinyint(4) DEFAULT NULL,
-  `min_delete_ahead_secs` int(11) DEFAULT NULL,
-  `max_delete_ahead_enabled` tinyint(4) DEFAULT NULL,
-  `max_delete_ahead_secs` int(11) DEFAULT NULL,
-  `max_per_day_enabled` tinyint(4) NOT NULL DEFAULT 0,
-  `max_per_day` int(11) NOT NULL DEFAULT 0,
-  `max_per_week_enabled` tinyint(4) NOT NULL DEFAULT 0,
-  `max_per_week` int(11) NOT NULL DEFAULT 0,
-  `max_per_month_enabled` tinyint(4) NOT NULL DEFAULT 0,
-  `max_per_month` int(11) NOT NULL DEFAULT 0,
-  `max_per_year_enabled` tinyint(4) NOT NULL DEFAULT 0,
-  `max_per_year` int(11) NOT NULL DEFAULT 0,
-  `max_per_future_enabled` tinyint(4) NOT NULL DEFAULT 0,
-  `max_per_future` int(11) NOT NULL DEFAULT 0,
-  `max_secs_per_day_enabled` tinyint(4) NOT NULL DEFAULT 0,
-  `max_secs_per_day` int(11) NOT NULL DEFAULT 0,
-  `max_secs_per_week_enabled` tinyint(4) NOT NULL DEFAULT 0,
-  `max_secs_per_week` int(11) NOT NULL DEFAULT 0,
-  `max_secs_per_month_enabled` tinyint(4) NOT NULL DEFAULT 0,
-  `max_secs_per_month` int(11) NOT NULL DEFAULT 0,
-  `max_secs_per_year_enabled` tinyint(4) NOT NULL DEFAULT 0,
-  `max_secs_per_year` int(11) NOT NULL DEFAULT 0,
-  `max_secs_per_future_enabled` tinyint(4) NOT NULL DEFAULT 0,
-  `max_secs_per_future` int(11) NOT NULL DEFAULT 0,
-  `max_duration_enabled` tinyint(4) NOT NULL DEFAULT 0,
-  `max_duration_secs` int(11) NOT NULL DEFAULT 0,
-  `max_duration_periods` int(11) NOT NULL DEFAULT 0,
-  `custom_html` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `approval_enabled` tinyint(4) DEFAULT NULL,
-  `reminders_enabled` tinyint(4) DEFAULT NULL,
-  `enable_periods` tinyint(4) DEFAULT NULL,
-  `periods` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `confirmation_enabled` tinyint(4) DEFAULT NULL,
-  `confirmed_default` tinyint(4) DEFAULT NULL,
-  `times_along_top` tinyint(4) NOT NULL DEFAULT 0,
-  `default_type` char(1) NOT NULL DEFAULT 'E'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `mrbs_area`
---
-
-INSERT INTO `mrbs_area` (`id`, `disabled`, `area_name`, `sort_key`, `timezone`, `area_admin_email`, `resolution`, `default_duration`, `default_duration_all_day`, `morningstarts`, `morningstarts_minutes`, `eveningends`, `eveningends_minutes`, `private_enabled`, `private_default`, `private_mandatory`, `private_override`, `min_create_ahead_enabled`, `min_create_ahead_secs`, `max_create_ahead_enabled`, `max_create_ahead_secs`, `min_delete_ahead_enabled`, `min_delete_ahead_secs`, `max_delete_ahead_enabled`, `max_delete_ahead_secs`, `max_per_day_enabled`, `max_per_day`, `max_per_week_enabled`, `max_per_week`, `max_per_month_enabled`, `max_per_month`, `max_per_year_enabled`, `max_per_year`, `max_per_future_enabled`, `max_per_future`, `max_secs_per_day_enabled`, `max_secs_per_day`, `max_secs_per_week_enabled`, `max_secs_per_week`, `max_secs_per_month_enabled`, `max_secs_per_month`, `max_secs_per_year_enabled`, `max_secs_per_year`, `max_secs_per_future_enabled`, `max_secs_per_future`, `max_duration_enabled`, `max_duration_secs`, `max_duration_periods`, `custom_html`, `approval_enabled`, `reminders_enabled`, `enable_periods`, `periods`, `confirmation_enabled`, `confirmed_default`, `times_along_top`, `default_type`) VALUES
-(1, 0, 'base', 'base', '__TIMEZONE__', NULL, 1800, 3600, 0, 7, 0, 18, 30, 0, 0, 0, 'none', 0, 0, 0, 604800, 0, 0, 0, 604800, 0, 1, 0, 5, 0, 10, 0, 50, 0, 100, 0, 7200, 0, 36000, 0, 90000, 0, 360000, 0, 360000, 0, 7200, 2, NULL, 0, 1, 0, '[\"Period 1\",\"Period 2\"]', 1, 1, 0, 'I');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `mrbs_entry`
---
-
-CREATE TABLE `mrbs_entry` (
-  `id` int(11) NOT NULL,
-  `start_time` int(11) NOT NULL DEFAULT 0 COMMENT 'Unix timestamp',
-  `end_time` int(11) NOT NULL DEFAULT 0 COMMENT 'Unix timestamp',
-  `entry_type` int(11) NOT NULL DEFAULT 0,
-  `repeat_id` int(11) DEFAULT NULL,
-  `room_id` int(11) NOT NULL DEFAULT 1,
-  `timestamp` timestamp NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `create_by` varchar(80) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `modified_by` varchar(80) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `name` varchar(80) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `type` char(1) NOT NULL DEFAULT 'E',
-  `description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `status` tinyint(3) UNSIGNED NOT NULL DEFAULT 0,
-  `reminded` int(11) DEFAULT NULL,
-  `info_time` int(11) DEFAULT NULL,
-  `info_user` varchar(80) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `info_text` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `ical_uid` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `ical_sequence` smallint(6) NOT NULL DEFAULT 0,
-  `ical_recur_id` varchar(16) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `allow_registration` tinyint(4) NOT NULL DEFAULT 0,
-  `registrant_limit` int(11) NOT NULL DEFAULT 0,
-  `registrant_limit_enabled` tinyint(4) NOT NULL DEFAULT 1,
-  `registration_opens` int(11) NOT NULL DEFAULT 1209600 COMMENT 'Seconds before the start time',
-  `registration_opens_enabled` tinyint(4) NOT NULL DEFAULT 0,
-  `registration_closes` int(11) NOT NULL DEFAULT 0 COMMENT 'Seconds before the start_time',
-  `registration_closes_enabled` tinyint(4) NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `mrbs_participants`
---
-
-CREATE TABLE `mrbs_participants` (
-  `id` int(11) NOT NULL,
-  `entry_id` int(11) NOT NULL,
-  `username` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `create_by` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `registered` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `mrbs_repeat`
---
-
-CREATE TABLE `mrbs_repeat` (
-  `id` int(11) NOT NULL,
-  `start_time` int(11) NOT NULL DEFAULT 0 COMMENT 'Unix timestamp',
-  `end_time` int(11) NOT NULL DEFAULT 0 COMMENT 'Unix timestamp',
-  `rep_type` int(11) NOT NULL DEFAULT 0,
-  `end_date` int(11) NOT NULL DEFAULT 0 COMMENT 'Unix timestamp',
-  `rep_opt` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `room_id` int(11) NOT NULL DEFAULT 1,
-  `timestamp` timestamp NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `create_by` varchar(80) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `modified_by` varchar(80) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `name` varchar(80) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `type` char(1) NOT NULL DEFAULT 'E',
-  `description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `rep_interval` smallint(6) NOT NULL DEFAULT 1,
-  `month_absolute` smallint(6) DEFAULT NULL,
-  `month_relative` varchar(4) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `status` tinyint(3) UNSIGNED NOT NULL DEFAULT 0,
-  `reminded` int(11) DEFAULT NULL,
-  `info_time` int(11) DEFAULT NULL,
-  `info_user` varchar(80) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `info_text` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `ical_uid` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `ical_sequence` smallint(6) NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `mrbs_room`
---
-
-CREATE TABLE `mrbs_room` (
-  `id` int(11) NOT NULL,
-  `disabled` tinyint(4) NOT NULL DEFAULT 0,
-  `area_id` int(11) NOT NULL DEFAULT 0,
-  `room_name` varchar(25) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `sort_key` varchar(25) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `description` varchar(60) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `capacity` int(11) NOT NULL DEFAULT 0,
-  `room_admin_email` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `invalid_types` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'JSON encoded',
-  `custom_html` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `mrbs_room`
---
-
-INSERT INTO `mrbs_room` (`id`, `disabled`, `area_id`, `room_name`, `sort_key`, `description`, `capacity`, `room_admin_email`, `invalid_types`, `custom_html`) VALUES
-(1, 0, 1, 'room1', 'room1', '', 0, '', NULL, NULL);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `mrbs_sessions`
---
-
-CREATE TABLE `mrbs_sessions` (
-  `id` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `access` int(10) UNSIGNED DEFAULT NULL COMMENT 'Unix timestamp',
-  `data` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
-
--- --------------------------------------------------------
-
---
--- Table structure for table `mrbs_users`
---
-
-CREATE TABLE `mrbs_users` (
-  `id` int(11) NOT NULL,
-  `level` smallint(6) NOT NULL DEFAULT 0,
-  `name` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `display_name` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `password_hash` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `email` varchar(75) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `timestamp` timestamp NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `last_login` int(11) NOT NULL DEFAULT 0,
-  `reset_key_hash` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `reset_key_expiry` int(11) NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `mrbs_users`
---
-
--- --------------------------------------------------------
-
---
--- Table structure for table `mrbs_variables`
---
-
-CREATE TABLE `mrbs_variables` (
-  `id` int(11) NOT NULL,
-  `variable_name` varchar(80) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `variable_content` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `mrbs_variables`
---
-
-INSERT INTO `mrbs_variables` (`id`, `variable_name`, `variable_content`) VALUES
-(1, 'db_version', '82'),
-(2, 'local_db_version', '1');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `mrbs_zoneinfo`
---
-
-CREATE TABLE `mrbs_zoneinfo` (
-  `id` int(11) NOT NULL,
-  `timezone` varchar(127) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `outlook_compatible` tinyint(3) UNSIGNED NOT NULL DEFAULT 0,
-  `vtimezone` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `last_updated` int(11) NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+(1, 'Europe/London', 0);
 
 -- --------------------------------------------------------
 
@@ -920,13 +648,6 @@ CREATE TABLE `resources` (
   `additional_properties` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `resources`
---
-
-INSERT INTO `resources` (`resource_id`, `name`, `location`, `contact_info`, `description`, `notes`, `min_duration`, `min_increment`, `max_duration`, `unit_cost`, `autoassign`, `requires_approval`, `allow_multiday_reservations`, `max_participants`, `min_notice_time_add`, `max_notice_time`, `image_name`, `schedule_id`, `legacyid`, `admin_group_id`, `public_id`, `allow_calendar_subscription`, `sort_order`, `resource_type_id`, `status_id`, `resource_status_reason_id`, `buffer_time`, `enable_check_in`, `auto_release_minutes`, `color`, `allow_display`, `credit_count`, `peak_credit_count`, `min_notice_time_update`, `min_notice_time_delete`, `date_created`, `last_modified`, `additional_properties`) VALUES
-(1, 'Room', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 1, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, 0, NULL, NULL, 1, NULL, NULL, 0, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2025-09-09 17:04:52', NULL, NULL);
-
 -- --------------------------------------------------------
 
 --
@@ -1176,10 +897,6 @@ CREATE TABLE `users` (
   `terms_date_accepted` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `users`
---
-
 -- --------------------------------------------------------
 
 --
@@ -1188,21 +905,9 @@ CREATE TABLE `users` (
 
 CREATE TABLE `user_email_preferences` (
   `user_id` mediumint(8) UNSIGNED NOT NULL,
-  `event_category` varchar(45) CHARACTER SET latin1 COLLATE utf8mb4_general_ci NOT NULL,
-  `event_type` varchar(45) CHARACTER SET latin1 COLLATE utf8mb4_general_ci NOT NULL
+  `event_category` varchar(45) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `event_type` varchar(45) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `user_email_preferences`
---
-
-INSERT INTO `user_email_preferences` (`user_id`, `event_category`, `event_type`) VALUES
-(2, 'reservation', 'approved'),
-(2, 'reservation', 'created'),
-(2, 'reservation', 'deleted'),
-(2, 'reservation', 'participation_changed'),
-(2, 'reservation', 'series_ending'),
-(2, 'reservation', 'updated');
 
 -- --------------------------------------------------------
 
@@ -1214,14 +919,6 @@ CREATE TABLE `user_groups` (
   `user_id` mediumint(8) UNSIGNED NOT NULL,
   `group_id` smallint(5) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `user_groups`
---
-
-INSERT INTO `user_groups` (`user_id`, `group_id`) VALUES
-(1, 1),
-(2, 2);
 
 -- --------------------------------------------------------
 
@@ -1235,14 +932,6 @@ CREATE TABLE `user_preferences` (
   `name` varchar(100) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
   `value` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `user_preferences`
---
-
-INSERT INTO `user_preferences` (`user_preferences_id`, `user_id`, `name`, `value`) VALUES
-(2, 1, 'CalendarFilter', '||'),
-(5, 2, 'CalendarFilter', '||');
 
 -- --------------------------------------------------------
 
@@ -1422,73 +1111,6 @@ ALTER TABLE `group_roles`
 --
 ALTER TABLE `layouts`
   ADD PRIMARY KEY (`layout_id`);
-
---
--- Indexes for table `mrbs_area`
---
-ALTER TABLE `mrbs_area`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `uq_area_name` (`area_name`);
-
---
--- Indexes for table `mrbs_entry`
---
-ALTER TABLE `mrbs_entry`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `repeat_id` (`repeat_id`),
-  ADD KEY `idxStartTime` (`start_time`),
-  ADD KEY `idxEndTime` (`end_time`),
-  ADD KEY `idxRoomStartEnd` (`room_id`,`start_time`,`end_time`);
-
---
--- Indexes for table `mrbs_participants`
---
-ALTER TABLE `mrbs_participants`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `uq_entryid_username` (`entry_id`,`username`);
-
---
--- Indexes for table `mrbs_repeat`
---
-ALTER TABLE `mrbs_repeat`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `room_id` (`room_id`);
-
---
--- Indexes for table `mrbs_room`
---
-ALTER TABLE `mrbs_room`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `uq_room_name` (`area_id`,`room_name`),
-  ADD KEY `idxSortKey` (`sort_key`);
-
---
--- Indexes for table `mrbs_sessions`
---
-ALTER TABLE `mrbs_sessions`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `idxAccess` (`access`);
-
---
--- Indexes for table `mrbs_users`
---
-ALTER TABLE `mrbs_users`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `uq_name` (`name`);
-
---
--- Indexes for table `mrbs_variables`
---
-ALTER TABLE `mrbs_variables`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `uq_variable_name` (`variable_name`);
-
---
--- Indexes for table `mrbs_zoneinfo`
---
-ALTER TABLE `mrbs_zoneinfo`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `uq_timezone` (`timezone`,`outlook_compatible`);
 
 --
 -- Indexes for table `payment_configuration`
@@ -1794,7 +1416,7 @@ ALTER TABLE `user_statuses`
 -- AUTO_INCREMENT for table `accessories`
 --
 ALTER TABLE `accessories`
-  MODIFY `accessory_id` smallint(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `accessory_id` smallint(5) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `account_activation`
@@ -1848,61 +1470,13 @@ ALTER TABLE `custom_time_blocks`
 -- AUTO_INCREMENT for table `groups`
 --
 ALTER TABLE `groups`
-  MODIFY `group_id` smallint(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `group_id` smallint(5) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `layouts`
 --
 ALTER TABLE `layouts`
   MODIFY `layout_id` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT for table `mrbs_area`
---
-ALTER TABLE `mrbs_area`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT for table `mrbs_entry`
---
-ALTER TABLE `mrbs_entry`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT for table `mrbs_participants`
---
-ALTER TABLE `mrbs_participants`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `mrbs_repeat`
---
-ALTER TABLE `mrbs_repeat`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `mrbs_room`
---
-ALTER TABLE `mrbs_room`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT for table `mrbs_users`
---
-ALTER TABLE `mrbs_users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT for table `mrbs_variables`
---
-ALTER TABLE `mrbs_variables`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT for table `mrbs_zoneinfo`
---
-ALTER TABLE `mrbs_zoneinfo`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `payment_transaction_log`
@@ -1974,7 +1548,7 @@ ALTER TABLE `reservation_waitlist_requests`
 -- AUTO_INCREMENT for table `resources`
 --
 ALTER TABLE `resources`
-  MODIFY `resource_id` smallint(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `resource_id` smallint(5) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `resource_accessories`
@@ -2034,13 +1608,13 @@ ALTER TABLE `time_blocks`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `user_id` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `user_preferences`
 --
 ALTER TABLE `user_preferences`
-  MODIFY `user_preferences_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `user_preferences_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `user_session`
@@ -2116,31 +1690,6 @@ ALTER TABLE `group_resource_permissions`
 ALTER TABLE `group_roles`
   ADD CONSTRAINT `group_roles_ibfk_1` FOREIGN KEY (`group_id`) REFERENCES `groups` (`group_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `group_roles_ibfk_2` FOREIGN KEY (`role_id`) REFERENCES `roles` (`role_id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `mrbs_entry`
---
-ALTER TABLE `mrbs_entry`
-  ADD CONSTRAINT `mrbs_entry_ibfk_1` FOREIGN KEY (`room_id`) REFERENCES `mrbs_room` (`id`) ON UPDATE CASCADE,
-  ADD CONSTRAINT `mrbs_entry_ibfk_2` FOREIGN KEY (`repeat_id`) REFERENCES `mrbs_repeat` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `mrbs_participants`
---
-ALTER TABLE `mrbs_participants`
-  ADD CONSTRAINT `mrbs_participants_ibfk_1` FOREIGN KEY (`entry_id`) REFERENCES `mrbs_entry` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `mrbs_repeat`
---
-ALTER TABLE `mrbs_repeat`
-  ADD CONSTRAINT `mrbs_repeat_ibfk_1` FOREIGN KEY (`room_id`) REFERENCES `mrbs_room` (`id`) ON UPDATE CASCADE;
-
---
--- Constraints for table `mrbs_room`
---
-ALTER TABLE `mrbs_room`
-  ADD CONSTRAINT `mrbs_room_ibfk_1` FOREIGN KEY (`area_id`) REFERENCES `mrbs_area` (`id`) ON UPDATE CASCADE;
 
 --
 -- Constraints for table `peak_times`
