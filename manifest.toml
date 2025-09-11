@@ -49,14 +49,6 @@ ram.runtime = "50M"
     choices = ["fr_fr", "en_us"]
     default = "fr_fr"
 
-    [install.admin]
-    type = "user"
-
-    [install.password]
-    help.en = "Use the help field to add an information for the admin about this question."
-    help.fr = "Utilisez le champ aide pour ajouter une information à l'intention de l'administrateur à propos de cette question."
-    type = "password"
-
     [install.title]
     ask.en = "The app public name"
     ask.fr = "Le nom publique de l'application"
