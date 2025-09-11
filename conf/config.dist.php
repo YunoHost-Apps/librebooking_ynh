@@ -391,10 +391,10 @@ return [
 
         'registration' => [
             # Enable self-registration for new users (true/false)
-            'allow.self.registration' => false,
+            'allow.self.registration' => true,
 
             # Enable CAPTCHA during user registration (true/false)
-            'captcha.enabled' => true,
+            'captcha.enabled' => false,
 
             # Require users to activate their account via email (true/false)
             'require.email.activation' => true,
@@ -412,7 +412,7 @@ return [
             'require.position' => false,
 
             # Require organization name during registration (true/false)
-            'require.organization' => false,
+            'require.organization' => true,
 
             # Hide phone field from the registration form (true/false)
             'hide.phone' => false,
