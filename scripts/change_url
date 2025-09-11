@@ -30,6 +30,9 @@ ynh_replace --match="$old_path" --replace="$new_path" --file="$install_dir/confi
 
 ynh_replace --match="$old_domain" --replace="$new_domain" --file="$install_dir/config/config.php"
 
+chmod 600 "$install_dir/config/config.php"
+chown "$app:www-data" "$install_dir/config/config.php"
+
 #=================================================
 # END OF SCRIPT
 #=================================================
