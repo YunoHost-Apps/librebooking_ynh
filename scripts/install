@@ -32,6 +32,8 @@ ynh_setup_source --dest_dir="$install_dir"
 
 ynh_composer_exec install
 
+mkdir $install_dir/tpl_c
+
 chown -R "$app:www-data" "$install_dir"
 
 #=================================================
