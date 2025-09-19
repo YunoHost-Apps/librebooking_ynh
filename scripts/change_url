@@ -5,6 +5,9 @@
 #=================================================
 
 source /usr/share/yunohost/helpers
+admin_mail=$(ynh_user_get_info --username=$admin --key=mail)
+admin_name=$(ynh_user_get_info --username=$admin --key=fullname)
+timezone=$(ynh_app_setting_get --key=timezone)
 
 #=================================================
 # SPECIFIC MODIFICATIONS
@@ -14,10 +17,6 @@ ynh_safe_rm $install_dir/tpl_c
 mkdir $install_dir/tpl_c
 
 chown "$app:www-data" "$install_dir/tpl_c"
-
-#ynh_replace --match="$old_path" --replace="$new_path" --file="$install_dir/config/config.php"
-
-#ynh_replace --match="$old_domain" --replace="$new_domain" --file="$install_dir/config/config.php"
 
 ynh_config_add --template="config.dist.php" --destination="$install_dir/config/config.php"
 
