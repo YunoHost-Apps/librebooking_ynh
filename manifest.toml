@@ -17,13 +17,12 @@ admindoc = "https://librebooking.readthedocs.io"
 code = "https://github.com/LibreBooking/app"
 
 [integration]
-yunohost = ">= 12.0.9"
+yunohost = ">= 12.1.17"
 helpers_version = "2.1"
 architectures = "all"
 multi_instance = true
 
-ldap = "not_relevant"
-
+ldap = false
 sso = false
 
 disk = "50M"
@@ -97,7 +96,8 @@ ram.runtime = "50M"
     allow_email = true
 
     [resources.install_dir]
-
+    group = "www-data:r-x"
+    
     [resources.data_dir]
 
     [resources.permissions]
