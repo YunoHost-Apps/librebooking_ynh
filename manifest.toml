@@ -7,7 +7,7 @@ name = "LibreBooking"
 description.en = "Resource scheduling solution"
 description.fr = "Solution de réservation des ressources"
 
-version = "4.2.0~ynh1"
+version = "5.2.0~ynh1"
 
 maintainers = ["DeMiro5001"]
 
@@ -87,8 +87,8 @@ ram.runtime = "50M"
     [resources.sources]
 
     [resources.sources.main]
-        url = "https://github.com/LibreBooking/app/archive/refs/tags/v4.2.0.tar.gz"
-        sha256 = "19b2abaa7e4911aa65584eae4305ba71f52e5d44459c3da0aa15b47f3544d4fc"
+        url = "https://github.com/LibreBooking/app/archive/refs/tags/v5.2.0.tar.gz"
+        sha256 = "6a011dc2545e11b83429124793c4ed718df2dcb1be54184bf2b6154172eb9229"
 
         autoupdate.strategy = "latest_github_tag"
 
@@ -104,7 +104,7 @@ ram.runtime = "50M"
     main.url = "/"
 
     [resources.apt]
-    packages = "php8.4-pdo, php8.4-mbstring, php8.4-tokenizer, php8.4-json, php8.4-curl, php8.4-xml, php8.4-ctype, php8.4-bcmath, php8.4-fileinfo, php8.4-mysqli, php8.4-gd, mariadb-server"
+    packages = "php8.4-pdo, php8.4-mbstring, php8.4-tokenizer, php8.4-json, php8.4-curl, php8.4-xml, php8.4-ctype, php8.4-bcmath, php8.4-fileinfo, php8.4-mysqli, php8.4-gd, php8.4-intl, php8.4-ldap, mariadb-server"
     
     [resources.database]
     type = "mysql"
