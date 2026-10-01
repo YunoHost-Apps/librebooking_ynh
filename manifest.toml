@@ -7,7 +7,7 @@ name = "LibreBooking"
 description.en = "Resource scheduling solution"
 description.fr = "Solution de réservation des ressources"
 
-version = "5.3.0~ynh1"
+version = "6.0.0~ynh1"
 
 maintainers = ["DeMiro5001"]
 
@@ -87,8 +87,8 @@ ram.runtime = "50M"
     [resources.sources]
 
     [resources.sources.main]
-        url = "https://github.com/LibreBooking/app/archive/refs/tags/v5.3.0.tar.gz"
-        sha256 = "8e871087cff863d6e4b83031a0d1d461df431fb8503869338ca6923060265553"
+        url = "https://github.com/LibreBooking/app/archive/refs/tags/v6.0.0.tar.gz"
+        sha256 = "e5e32f4cd7a9b56dcf5178ffa5bce08b6e7876c6b6f994964b666a2134c28c84"
 
         autoupdate.strategy = "latest_github_tag"
 
