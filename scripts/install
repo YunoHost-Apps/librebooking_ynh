@@ -8,6 +8,7 @@ source /usr/share/yunohost/helpers
 
 admin_mail=$(ynh_user_get_info --username=$admin --key=mail)
 admin_name=$(ynh_user_get_info --username=$admin --key=fullname)
+ynh_app_setting_set --key=admin_name --value=$admin_name
 
 timezone="$(timedatectl show --value --property=Timezone)"
 ynh_app_setting_set --key=timezone --value=$timezone

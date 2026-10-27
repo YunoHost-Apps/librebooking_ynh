@@ -16,6 +16,9 @@ ynh_app_setting_set_default --key=php_post_max_size --value=50M
 
 timezone=$(ynh_app_setting_get --key=timezone)
 
+admin_name=$(ynh_user_get_info --username=$admin --key=fullname)
+ynh_app_setting_set --key=admin_name --value=$admin_name
+
 #=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
 #=================================================
